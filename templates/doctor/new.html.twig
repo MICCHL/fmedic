@@ -1,0 +1,12 @@
+{% extends 'pageBase.html.twig' %}
+
+{% block title %}Dodaj lekarza{% endblock %}
+
+{% block content %}
+<div class="container-fluid px-4">
+    <h3 class="mt-4">Dodaj nowego lekarza</h3>
+
+    {{ include('doctor/_form.html.twig') }}
+</div>
+
+{% endblock %}
