@@ -1,0 +1,37 @@
+{% extends 'pageBase.html.twig' %}
+
+{% block title %}Lista lekarzy{% endblock %}
+
+{% block content %}
+
+    <a class="btn btn-success mt-1 float-end me-2" href="{{ path('doctor_new') }}">Dodaj nowego lekarza</a>
+
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Imię i Naziwsko</th>
+                <th>Stopień naukowy</th>
+                <th>#</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+                <td>{{ }}</td>
+                <td>{{}}</td>
+                <td>{{ }}</td>
+                <td>
+                    <a class="ms-1" href=""><i class="fas fa-edit"></i></a>
+
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">Brak lekarzy w systemie</td>
+            </tr>
+
+        </tbody>
+    </table>
+
+{% endblock %}
