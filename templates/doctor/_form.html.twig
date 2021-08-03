@@ -1,0 +1,29 @@
+{{ form_start() }}
+    <div class="mb-2">
+        <label>Stopień naukowy</label>
+        <div class="col-lg-3">
+            {{ form_widget() }}
+        </div>
+    </div>
+
+    <h3>Specjalizacja</h3>
+    <div class="form-group form-check mb-2">
+        {{ form_widget() }}
+    </div>
+
+    <div class="mb-2">
+        <label>Użytkownik</label>
+        <div class="col-lg-3">
+            {{ form_widget() }}
+        </div>
+    </div>
+
+    <div class="mb-2">
+        <label>Grafik pracy</label>
+        <div class="col-lg-3">
+            {{ form_widget() }}
+        </div>
+    </div>
+
+    <button class="btn btn-primary">{{ button_label|default('Zapisz') }}</button>
+{{ form_end() }}
