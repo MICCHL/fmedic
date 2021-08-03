@@ -1,0 +1,30 @@
+{{ form_start(form) }}
+<div class="mb-2">
+    <label>Opis grafiku</label>
+    {{ form_widget(form.description) }}
+</div>
+
+<h2>Dni pracujące</h2>
+<div class="form-group form-check">
+
+    {% include 'timetable/_formWorkDayRow.html.twig'%}
+
+    {% include 'timetable/_formWorkDayRow.html.twig'%}
+
+    {% include 'timetable/_formWorkDayRow.html.twig'%}
+
+    {% include 'timetable/_formWorkDayRow.html.twig'%}
+
+    {% include 'timetable/_formWorkDayRow.html.twig'%}
+
+    {% include 'timetable/_formWorkDayRow.html.twig'%}
+
+    {% include 'timetable/_formWorkDayRow.html.twig'%}
+
+</div>
+
+{{ form_widget(form) }}
+
+
+    <button class="btn btn-primary">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}
