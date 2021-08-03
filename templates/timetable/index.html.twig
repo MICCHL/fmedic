@@ -1,0 +1,27 @@
+{% extends 'pageBase.html.twig' %}
+
+{% block title %}Grafiki{% endblock %}
+
+{% block content %}
+
+    <a class="btn btn-success mt-1 float-end me-2" href="{{ path('timetable_new') }}">Dodaj nowy grafik</a>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Opis</th>
+                <th>Pon.</th>
+                <th>Wt.</th>
+                <th>Śr.</th>
+                <th>Czw.</th>
+                <th>Pt.</th>
+                <th>Sob.</th>
+                <th>Niedz.</th>
+                <th>#</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+{% endblock %}
