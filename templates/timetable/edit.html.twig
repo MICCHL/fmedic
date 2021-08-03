@@ -1,0 +1,38 @@
+{% extends 'pageBase.html.twig' %}
+
+{% block title %}Edycja grafiku{% endblock %}
+
+{% block content %}
+<div class="container-fluid px-4">
+    <h1 class="mt-1">Edytuj grafik</h1>
+
+    {{ include('timetable/_form.html.twig'}}
+
+</div>
+
+    <hr />
+    <p>
+        <button class="btn btn-primary ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseUsers" aria-expanded="false" aria-controls="collapseExample">
+            Lista lekarzy z tym grafikiem
+        </button>
+    </p>
+    <div class="collapse" id="collapseUsers">
+        <div class="card card-body">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Imię</th>
+                    <th>Nazwisko.</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="10">brak lekarzy</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
+
+
