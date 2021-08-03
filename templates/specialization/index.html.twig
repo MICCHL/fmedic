@@ -1,0 +1,33 @@
+{% extends 'pageBase.html.twig' %}
+
+{% block title %}Specjalizacje{% endblock %}
+
+{% block content %}
+
+    <a class="btn btn-success mt-1 float-end me-2" href="{{ path('specialization_new') }}">Dodaj nową specjalizację</a>
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nazwa</th>
+                <th>#</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td></td>
+                <td></td>
+                <td>
+                    <a class="ms-1" href=""><i class="fas fa-edit"></i></a>
+                    {{ include('specialization/_delete_form.html.twig') }}
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">brak specjalizacji</td>
+            </tr>
+        </tbody>
+    </table>
+
+{% endblock %}
