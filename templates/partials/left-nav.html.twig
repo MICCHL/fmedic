@@ -1,0 +1,33 @@
+<div id="layoutSidenav_nav">
+    <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+        <div class="sb-sidenav-menu">
+            <div class="nav">
+
+                <div class="sb-sidenav-menu-heading">Administracja</div>
+                    <a class="nav-link" href="{{ path('timetable_index') }}">
+                        Grafiki
+                    </a>
+                    <a class="nav-link" href="{{ path('specialization_index') }}">
+                        Specjalizacje
+                    </a>
+                    <a class="nav-link" href="{{ path('user_list') }}">
+                        Użytkownicy
+                    </a>
+
+                    <a class="nav-link" href="{{ path('doctor_index') }}">
+                        Lekarze
+                    </a>
+
+
+            <div class="sb-sidenav-menu-heading">Panel </div>
+                <a class="nav-link" href="{{ path('user_edit'}}">
+                Edycja konta
+            </a>
+
+            <a class="nav-link" href="{{ path('timetable_index') }}">
+                Wizyty
+            </a>
+
+        </div>
+    </nav>
+</div>
