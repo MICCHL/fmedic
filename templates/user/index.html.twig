@@ -1,0 +1,43 @@
+{% extends 'pageBase.html.twig' %}
+
+{% block title %}Użytkownicy {% endblock %}
+
+{% block content %}
+<a class="btn btn-success mt-1 float-end me-2" href="{{ path('timetable_new') }}">Dodaj nowego użytkownika</a>
+
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Imię</th>
+        <th>Nazwisko.</th>
+        <th>Status</th>
+
+        <th>#</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for user in users %}
+        <tr>
+            <td>{{ user.id }}</td>
+            <td>{{ user.firstname }}</td>
+            <td>{{ user.lastname }}</td>
+            <td>
+                {{ user.isVerified ? 'Zweryfikowany' : 'Nie zweryfikowany' }}
+                <br />
+                {{ user.blocked ? 'Zablokowany' : '' }}
+            </td>
+
+            <td>
+                <a class="ms-1" href="{{ path('user_edit', {'id': user.id}) }}"><i class="fas fa-edit"></i></a>
+            </td>
+        </tr>
+    {% else %}
+        <tr>
+            <td colspan="10">brak użytkowników</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
