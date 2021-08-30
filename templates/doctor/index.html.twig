@@ -17,20 +17,21 @@
             </tr>
         </thead>
         <tbody>
-
+        {% for doctor in doctors %}
             <tr>
-                <td>{{ }}</td>
-                <td>{{}}</td>
-                <td>{{ }}</td>
+                <td>{{ doctor.id }}</td>
+                <td>{{ doctor.user.username }}</td>
+                <td>{{ doctor.degree }}</td>
                 <td>
-                    <a class="ms-1" href=""><i class="fas fa-edit"></i></a>
+                    <a class="ms-1" href="{{ path('doctor_edit', {'id': doctor.id}) }}"><i class="fas fa-edit"></i></a>
 
                 </td>
             </tr>
+        {% else %}
             <tr>
                 <td colspan="2">Brak lekarzy w systemie</td>
             </tr>
-
+        {% endfor %}
         </tbody>
     </table>
 
