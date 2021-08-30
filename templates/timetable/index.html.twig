@@ -22,6 +22,45 @@
             </tr>
         </thead>
         <tbody>
+        {% for timetable in timetables %}
+            <tr>
+                <td>{{ timetable.id }}</td>
+                <td>{{ timetable.description }}</td>
+                <td>
+                    {% include 'timetable/dayStatusInTable.html.twig' with {day: timetable.monday, workHours: timetable.mondayWorkHours } %}
+                </td>
+                <td>
+                    {% include 'timetable/dayStatusInTable.html.twig' with {day: timetable.tuesday, workHours: timetable.tuesdayWorkHours } %}
+                </td>
+                <td>
+                    {% include 'timetable/dayStatusInTable.html.twig' with {day: timetable.wednesday, workHours: timetable.wednesdayWorkHours } %}
+
+                </td>
+                <td>
+                    {% include 'timetable/dayStatusInTable.html.twig' with {day: timetable.thursday, workHours: timetable.thursdayWorkHours } %}
+
+                </td>
+                <td>
+                    {% include 'timetable/dayStatusInTable.html.twig' with {day: timetable.friday, workHours: timetable.fridayWorkHours } %}
+
+                </td>
+                <td>
+                    {% include 'timetable/dayStatusInTable.html.twig' with {day: timetable.saturday, workHours: timetable.saturdayWorkHours } %}
+
+                </td>
+                <td>
+                    {% include 'timetable/dayStatusInTable.html.twig' with {day: timetable.sunday, workHours: timetable.sundayWorkHours } %}
+                </td>
+                <td>
+                    <a class="ms-1" href="{{ path('timetable_edit', {'id': timetable.id}) }}"><i class="fas fa-edit"></i></a>
+                    {{ include('timetable/_delete_form.html.twig') }}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="10">brak grafików</td>
+            </tr>
+        {% endfor %}
         </tbody>
     </table>
 {% endblock %}
