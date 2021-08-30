@@ -1,23 +1,41 @@
 {% extends 'pageBase.html.twig' %}
 
+{% block title %}Lekarze{% endblock %}
+
+
+{% block content %}
 <div class="container-fluid px-4">
     <h1 class="mt-4">Dostępni lekarze</h1>
 
     <div class="row mt-4">
+      {% for doctor in doctors %}
         <div class="col-xl-3 col-md-6">
             <div class="card bg-primary text-white mb-4">
                 <div class="card-header">
+                    {{ doctor.user.username }}
                 </div>
                 <div class="card-body">
-                    <p> </p>
+                    <p> {{ doctor.timetable.todayWorkingHours() }} </p>
 
+                    <ul>
+                        {% for specialization in doctor.specialization %}
+                            <li>{{ specialization.name }} </li>
+                        {% endfor %}
+                    </ul>
                 </div>
                 <div class="card-footer d-flex align-items-center justify-content-between">
+                    {% if doctor.timetable.isStillOpen %}
                     <a class="small text-white stretched-link" href="#">Rezerwuj wizytę</a>
                     <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                    {% else %}
+                        Zamknięte
+                   {% endif %}
                 </div>
             </div>
         </div>
-
+        {% else %}
+                <p>Dziś lekarze nie pracują</p>
+        {% endfor %}
     </div>
 </div>
+{% endblock %}
