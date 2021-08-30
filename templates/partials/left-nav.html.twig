@@ -3,6 +3,7 @@
         <div class="sb-sidenav-menu">
             <div class="nav">
 
+                {% if is_granted('ROLE_ADMIN') %}
                 <div class="sb-sidenav-menu-heading">Administracja</div>
                     <a class="nav-link" href="{{ path('timetable_index') }}">
                         Grafiki
@@ -17,16 +18,18 @@
                     <a class="nav-link" href="{{ path('doctor_index') }}">
                         Lekarze
                     </a>
+            {% endif %}
 
-
+            {% if is_granted('ROLE_USER') %}
             <div class="sb-sidenav-menu-heading">Panel </div>
-                <a class="nav-link" href="{{ path('user_edit'}}">
+                <a class="nav-link" href="{{ path('user_edit', {id: app.user.id}) }}">
                 Edycja konta
             </a>
 
             <a class="nav-link" href="{{ path('timetable_index') }}">
                 Wizyty
             </a>
+        {% endif %}
 
         </div>
     </nav>
