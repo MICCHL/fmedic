@@ -1,0 +1,28 @@
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Nr. wizyty</th>
+        <th>Lekarz</th>
+        <th>Data.</th>
+        <th>Cel wizyty</th>
+        <th>Opinia lekarza</th>
+        <th>#</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for visit in visits %}
+        <tr class="table-{% if visit.status == 1 %}success{% elseif visit.status == 2 %}warning{% endif %}">
+            <td>{{ visit.id }}</td>
+            <td>{{ visit.doctor.user.username }}</td>
+            <td>{{ visit.date|date('Y-m-d H:i') }}</td>
+            <td>{{ visit.description }}</td>
+            <td>{% if visit.summary %} {{ visit.summary }}{% endif %}</td>
+            <td>#</td>
+        </tr>
+    {% else %}
+        <tr>
+            <td colspan="10">brak wizyt</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
