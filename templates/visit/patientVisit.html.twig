@@ -1,0 +1,25 @@
+{% extends 'pageBase.html.twig' %}
+
+{% block title %}Nowa wizyta {% endblock %}
+
+{% block content %}
+
+    <div class="container-fluid px-4">
+        <h3 class="mt-4">Wizyta pacjenta {{ visit.patient.username }}</h3>
+        <p>Opis wizyty przez pacjenta: {{ visit.description }}</p>
+        <div class="row">
+            {{ form_start(form) }}
+            <div class="mb-2">
+                <label>Podsumowanie wizyty</label>
+                <div class="col-lg-6">
+                    {{ form_widget(form.summary) }}
+                </div>
+            </div>
+
+            <button class="btn btn-primary">{{ button_label|default('Potwierdź odbycie wizyty') }}</button>
+
+            {{ form_end(form) }}
+        </div>
+    </div>
+
+{% endblock %}
