@@ -1,0 +1,33 @@
+{% extends 'pageBase.html.twig' %}
+
+{% block title %}Dzień wizyty{% endblock %}
+
+{% block content %}
+
+    <div class="container-fluid px-4">
+        <h3 class="mt-4">Dostępne dni u {{ doctor.degree }} {{ doctor.user.username }}</h3>
+        {% include 'specialization/pointedList.html.twig' with { specializations : doctor.specialization } %}
+
+        <div class="row">
+        {% for x in range(timetableStart|date('U'), timetableEnd|date('U'), 86400 ) %}
+            <div class="col-sm-3 mb-3">
+                <div class="card d-flex" style="text-align: center">
+                    <div class="card-header">
+                        {{ x|date('d-m-Y') }}
+                    </div>
+                    <div class="card-body">
+                        {% if attribute(doctor.timetable, x|date('l')|lower) %}
+                            <h5 class="card-title">{{ attribute(doctor.timetable, x|date('l') ~ 'WorkHours')  }}</h5>
+                            <a href="{{ path('visit_doctor_day', { doctor : doctor.id, date :  x|date('d-m-Y') }) }}" class="btn btn-primary">Rezerwuj</a>
+                        {% else %}
+                            <p>Dzień wolny</p>
+                       {% endif %}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    </div>
+
+{% endblock %}
