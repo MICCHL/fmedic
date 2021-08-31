@@ -10,11 +10,22 @@
     </div>
 
     <div class="card-body">
+        {{ form_start(registrationForm) }}
+        {{ form_row(registrationForm.email) }}
+        {{ form_row(registrationForm.firstname, {
             'label' : 'Imię'
+        }) }}
+        {{ form_row(registrationForm.lastname, {
             label: 'Nazwisko'
+        }) }}
+
+        {{ form_row(registrationForm.plainPassword, {
+            label: 'Hasło'
+        }) }}
 
         <button type="submit" class="btn btn-lg btn-primary">Zarejestruj</button>
 
+        {{ form_end(registrationForm) }}
     </div>
 
     <div class="card-footer text-center py-3">
