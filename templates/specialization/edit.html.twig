@@ -4,7 +4,7 @@
 
 {% block content %}
 <div class="container-fluid px-4">
-    <h3 class="mt-4">Edytuj specjalizację: </h3>
+    <h3 class="mt-4">Edytuj specjalizację: {{ specialization.name }}</h3>
 
     {{ include('specialization/_form.html.twig', {'button_label': 'Zaktualizuj'}) }}
 </div>
