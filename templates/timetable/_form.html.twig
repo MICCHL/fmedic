@@ -7,19 +7,19 @@
 <h2>Dni pracujące</h2>
 <div class="form-group form-check">
 
-    {% include 'timetable/_formWorkDayRow.html.twig'%}
+    {% include 'timetable/_formWorkDayRow.html.twig' with {day : form.monday, dayWorkHours: form.mondayWorkHours} %}
 
-    {% include 'timetable/_formWorkDayRow.html.twig'%}
+    {% include 'timetable/_formWorkDayRow.html.twig' with {day : form.tuesday, dayWorkHours: form.tuesdayWorkHours} %}
 
-    {% include 'timetable/_formWorkDayRow.html.twig'%}
+    {% include 'timetable/_formWorkDayRow.html.twig' with {day : form.wednesday, dayWorkHours: form.wednesdayWorkHours} %}
 
-    {% include 'timetable/_formWorkDayRow.html.twig'%}
+    {% include 'timetable/_formWorkDayRow.html.twig' with {day : form.thursday, dayWorkHours: form.thursdayWorkHours} %}
 
-    {% include 'timetable/_formWorkDayRow.html.twig'%}
+    {% include 'timetable/_formWorkDayRow.html.twig' with {day : form.friday, dayWorkHours: form.fridayWorkHours} %}
 
-    {% include 'timetable/_formWorkDayRow.html.twig'%}
+    {% include 'timetable/_formWorkDayRow.html.twig' with {day : form.saturday, dayWorkHours: form.saturdayWorkHours} %}
 
-    {% include 'timetable/_formWorkDayRow.html.twig'%}
+    {% include 'timetable/_formWorkDayRow.html.twig' with {day : form.sunday, dayWorkHours: form.sundayWorkHours} %}
 
 </div>
 
