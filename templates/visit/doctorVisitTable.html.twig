@@ -1,0 +1,26 @@
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Nr. wizyty</th>
+        <th>Pacjent</th>
+        <th>Godzina </th>
+        <th>Cel wizyty</th>
+        <th>#</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for visit in visits %}
+        <tr>
+            <td>{{ visit.id }}</td>
+            <td>{{ visit.patient.username }}</td>
+            <td>{{ visit.date|date('H:i') }}</td>
+            <td>{{ visit.description }}</td>
+            <td><a class="btn btn-primary" href="{{ path('visit_accept', { visit : visit.id}) }}">Przyjmij pacjenta</a> </td>
+        </tr>
+    {% else %}
+        <tr>
+            <td colspan="10">brak wizyt</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
