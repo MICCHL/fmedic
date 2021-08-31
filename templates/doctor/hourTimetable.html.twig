@@ -1,0 +1,29 @@
+{% extends 'pageBase.html.twig' %}
+
+{% block title %}Godzina wizyty{% endblock %}
+
+{% block content %}
+
+    <div class="container-fluid px-4">
+        <h3 class="mt-4">Dostępne godziny u {{ doctor.degree }} {{ doctor.user.username }} w dniu {{ selectedDate }}</h3>
+        {% include 'specialization/pointedList.html.twig' with { specializations : doctor.specialization } %}
+
+        <div class="row">
+        {% for visitHour, value in availableHours %}
+            <div class="col-sm-3 mb-3">
+                <div class="card d-flex" style="text-align: center">
+                    <div class="card-header">
+                        {{ selectedDate }}
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Godz: {{ visitHour }}:00</h5>
+                            <a href="{{ path('visit_doctor_book', { doctor : doctor.id, date :  selectedDate, hour: visitHour }) }}" class="btn btn-primary">Rezerwuj</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    </div>
+
+{% endblock %}
