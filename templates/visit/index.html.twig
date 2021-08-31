@@ -1,0 +1,17 @@
+{% extends 'pageBase.html.twig' %}
+
+{% block title %}Wizyty{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid px-4">
+    <h3>Wizyty</h3>
+
+
+    {% if is_granted('ROLE_DOCTOR') %}
+        {% include 'visit/doctorVisitTable.html.twig' with {visits : visits} %}
+    {% else %}
+        {% include 'visit/userVisitTable.html.twig' with {visits : visits} %}
+    {% endif %}
+</div>
+{% endblock %}
