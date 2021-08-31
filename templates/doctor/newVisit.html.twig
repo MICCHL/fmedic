@@ -1,0 +1,26 @@
+{% extends 'pageBase.html.twig' %}
+
+{% block title %}Godzina wizyty{% endblock %}
+
+{% block content %}
+
+    <div class="container-fluid px-4">
+        <h3 class="mt-4">Potwierdź wizytę u{{ visit.doctor.degree }} {{ visit.doctor.user.username }} dnia {{ visit.date|date('Y-m-d H:i') }}</h3>
+        <div class="row">
+            {{ form_start(form) }}
+            <div class="mb-2">
+                <label>Cel wizyty</label>
+                <div class="col-lg-6">
+                    {{ form_widget(form.description) }}
+                </div>
+            </div>
+
+            <button class="btn btn-primary">{{ button_label|default('Zapisz na wizytę') }}</button>
+
+            {{ form_end(form) }}
+        </div>
+    </div>
+
+    </div>
+
+{% endblock %}
