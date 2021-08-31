@@ -6,7 +6,7 @@
 <div class="container-fluid px-4">
     <h1 class="mt-1">Edytuj grafik</h1>
 
-    {{ include('timetable/_form.html.twig'}}
+    {{ include('timetable/_form.html.twig', {'button_label': 'Aktualizuj'}) }}
 
 </div>
 
@@ -26,9 +26,16 @@
                 </tr>
                 </thead>
                 <tbody>
+                {% for doctor in timetable.doctors %}
+                    <tr>
+                        <td>{{ doctor.user.firstname }}</td>
+                        <td>{{ doctor.user.lastname }}</td>
+                    </tr>
+                {% else %}
                     <tr>
                         <td colspan="10">brak lekarzy</td>
                     </tr>
+                {% endfor %}
                 </tbody>
             </table>
         </div>
