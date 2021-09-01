@@ -17,15 +17,11 @@
                 <div class="card-body">
                     <p> {{ doctor.timetable.todayWorkingHours() }} </p>
 
-                    <ul>
-                        {% for specialization in doctor.specialization %}
-                            <li>{{ specialization.name }} </li>
-                        {% endfor %}
-                    </ul>
+                {% include 'specialization/pointedList.html.twig' with { specializations : doctor.specialization } %}
                 </div>
                 <div class="card-footer d-flex align-items-center justify-content-between">
                     {% if doctor.timetable.isStillOpen %}
-                    <a class="small text-white stretched-link" href="#">Rezerwuj wizytę</a>
+                    <a class="small text-white stretched-link" href="{{ path('visit_doctor_week', {doctor : doctor.id}) }}">Rezerwuj wizytę</a>
                     <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                     {% else %}
                         Zamknięte
