@@ -70,7 +70,7 @@ class TimetableType extends AbstractType
             'required' => false,
             'label' => 'Godziny pracy',
             'attr' => [
-                'placeholder' => '00-24',
+                'placeholder' => '00-23',
             ],
             'constraints' => [
                 new Regex('/[0-9]{2}-[0-9]{2}/')
