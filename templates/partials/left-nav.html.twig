@@ -3,6 +3,13 @@
         <div class="sb-sidenav-menu">
             <div class="nav">
 
+                {% if not app.user %}
+                    <div class="sb-sidenav-menu-heading">Menu</div>
+                    <a class="nav-link" href="{{ path('app_login') }}">
+                        Logowanie
+                    </a>
+                {% endif %}
+
                 {% if is_granted('ROLE_ADMIN') %}
                 <div class="sb-sidenav-menu-heading">Administracja</div>
                     <a class="nav-link" href="{{ path('timetable_index') }}">
@@ -21,15 +28,15 @@
             {% endif %}
 
             {% if is_granted('ROLE_USER') %}
-            <div class="sb-sidenav-menu-heading">Panel </div>
-                <a class="nav-link" href="{{ path('user_edit', {id: app.user.id}) }}">
-                Edycja konta
-            </a>
+                <div class="sb-sidenav-menu-heading">Panel </div>
+                    <a class="nav-link" href="{{ path('user_edit', {id: app.user.id}) }}">
+                    Edycja konta
+                </a>
 
-            <a class="nav-link" href="{{ path('timetable_index') }}">
-                Wizyty
-            </a>
-        {% endif %}
+                <a class="nav-link" href="{{ path('visit_list') }}">
+                    Wizyty
+                </a>
+            {% endif %}
 
         </div>
     </nav>
