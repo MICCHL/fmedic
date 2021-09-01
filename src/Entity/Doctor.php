@@ -39,9 +39,15 @@ class Doctor
      */
     private $degree;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Visit::class, mappedBy="doctor")
+     */
+    private $visits;
+
     public function __construct()
     {
         $this->specialization = new ArrayCollection();
+        $this->visits = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -105,6 +111,36 @@ class Doctor
     public function setDegree(string $degree): self
     {
         $this->degree = $degree;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Visit[]
+     */
+    public function getVisits(): Collection
+    {
+        return $this->visits;
+    }
+
+    public function addVisit(Visit $visit): self
+    {
+        if (!$this->visits->contains($visit)) {
+            $this->visits[] = $visit;
+            $visit->setDoctor($this);
+        }
+
+        return $this;
+    }
+
+    public function removeVisit(Visit $visit): self
+    {
+        if ($this->visits->removeElement($visit)) {
+            // set the owning side to null (unless already changed)
+            if ($visit->getDoctor() === $this) {
+                $visit->setDoctor(null);
+            }
+        }
 
         return $this;
     }
