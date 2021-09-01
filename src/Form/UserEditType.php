@@ -7,8 +7,6 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\CallbackTransformer;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Form\FormEvent;
-use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class UserEditType extends AbstractType
@@ -21,10 +19,10 @@ class UserEditType extends AbstractType
             ->add('lastname')
         ;
 
-        $builder->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event) use ($builder){
 
-            /** @var User $user */
-            $user = $event->getData();
+        /** @var User $user */
+        $user = $builder->getData();
+
 
             if (in_array('ROLE_ADMIN', $user->getRoles())) {
 
@@ -42,7 +40,6 @@ class UserEditType extends AbstractType
                     ->add('blocked');
 
 
-
                 $builder->get('roles')
                     ->addModelTransformer(new CallbackTransformer(
                         function ($rolesArray) {
@@ -55,10 +52,8 @@ class UserEditType extends AbstractType
                         }
                     ));
 
-            }
+        };
 
-
-        });
 
 
     }
