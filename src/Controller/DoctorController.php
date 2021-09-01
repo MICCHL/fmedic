@@ -49,16 +49,6 @@ class DoctorController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="doctor_show", methods={"GET"})
-     */
-    public function show(Doctor $doctor): Response
-    {
-        return $this->render('doctor/show.html.twig', [
-            'doctor' => $doctor,
-        ]);
-    }
-
-    /**
      * @Route("/{id}/edit", name="doctor_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Doctor $doctor): Response
